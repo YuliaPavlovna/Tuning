@@ -1,0 +1,51 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var vendorScripts = ['parallax-js/dist/parallax.min.js']
+  - var parentMenu = 'Home'
+  - var pageTitle = 'BMW Load Based Tuning Aid'
+
+//- Navbar
+block navbar
+  include partials/navbar-index
+
+//- Page Content
+block content
+
+  // Intro
+  section.d-flex.align-items-center.position-relative.bg-dark.bg-size-cover.bg-position-center.min-vh-100.overflow-hidden.pt-6.pb-lg-5(style='background-image: url(img/demo/presentation/intro/bmw.jpg);')
+    .container-fluid.pt-4.pb-5.py-lg-5
+      .row.align-items-center.py-3
+        .col-xl-6.col-lg-5.d-flex.justify-content-end
+          .pt-5.bg-dark.rounded-3.mx-auto.mb-auto.mb-lg-auto.ms-lg-auto.me-xl-auto.text-center.text-lg-center(style='max-width: 495px;')
+            h1.display-4.text-light.pb-2(style='font-size:2vw;')
+              span.fw-light(style='font-size:2vw;') BMW Load Based 
+              | Tuning Tool!
+              p.h4.fw-light.text-light.opacity-80.line-height-base(style='font-size:1vw;') Designed to make tuning BMWs easier!
+              hr.hr-light.mt-0.mb-4
+        .col-xl-6.col-lg-7
+          .parallax.ms-lg-n5(style='max-width: 920px;')
+            .parallax-layer.position-relative(data-depth='0.1')
+              img(src='img/demo/presentation/intro/layer01.png' alt='Layer')
+            .parallax-layer(style='z-index: 2;' data-depth='0.3')
+              img(src='img/demo/presentation/intro/layer02.png' alt='Layer')
+            .parallax-layer(data-depth='0.2')
+              img(src='img/demo/presentation/intro/layer03.png' alt='Layer')
+            .parallax-layer(style='z-index: 3;' data-depth='0.1')
+              img(src='img/demo/presentation/intro/layer04.png' alt='Layer')
+            .parallax-layer(data-depth='0.15')
+              img(src='img/demo/presentation/intro/layer05.png' alt='Layer')
+            .parallax-layer(style='z-index: 4;' data-depth='0.25')
+              img(src='img/demo/presentation/intro/layer06.png' alt='Layer')
+            .parallax-layer(data-depth='0.3')
+              img(src='img/demo/presentation/intro/layer07.png' alt='Layer')
+            .parallax-layer(data-depth='0.4')
+              img(src='img/demo/presentation/intro/layer08.png' alt='Layer')
+            .parallax-layer(data-depth='0.35')
+              img(src='img/demo/presentation/intro/layer09.png' alt='Layer') 
+
+//- Footer
+block footer
+  include partials/footer-simple
+        

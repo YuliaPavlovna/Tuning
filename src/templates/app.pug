@@ -1,0 +1,25 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+  - var parentMenu = 'Pages'
+  - var pageTitle = 'About'
+
+//- Navbar
+block navbar
+  include partials/navbar-index
+
+//- Page Content
+block content
+  head
+    script(src='vendor/handsontable/dist/handsontable.full.min.js')
+    link(rel='stylesheet' href='vendor/handsontable/dist/handsontable.full.min.css')
+    title Home page
+  #example
+  script(src='TuningTool/TuningTool.js')
+
+
+
+//- Footer
+block footer
+  include partials/footer-simple

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Navardi | About</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="BMW Load Based Tuning Aid">
+    <meta name="keywords" content="Bootmod3, bm3, MHD, MGFlasher, Tuning, Load Based Tuning, How to tune, Tuning Calculator, Custom Tuning, Aftermarket, BMW, Performance, Power">
+    <meta name="author" content="Navardi Tuned">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" color="#5bbad5" href="safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#766df4">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Page loading styles-->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-family: 'Inter', sans-serif;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #737491;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #766df4;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      .boost, .base{
+        margin-top: 30px;
+        margin-left: 20px;
+        margin-right: 50px;
+      }
+      
+      .handsontableInput{
+        width: 40px !important;
+      }
+      .nav{
+        font-size: 14px;
+      }
+
+    </style>
+    <!-- Page loading scripts-->
+    <script>
+      (function () {
+        window.onload = function () {
+          var preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 2000);
+        };
+      })();
+      
+    </script>
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="css/theme.min.css">
+  </head>
+  <!-- Body-->
+  <body>
+    <!-- Page loading spinner-->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+    <main class="page-wrapper">
+      <!-- Navbar Floating light for Index page only-->
+      <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
+      
+      <head>
+        <script src="vendor/handsontable/dist/handsontable.full.min.js"></script>
+        <link rel="stylesheet" href="vendor/handsontable/dist/handsontable.full.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <title>Home page</title>
+      </head>
+
+      <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#BaseOptimalTQ">BaseOptimalTQ</a></li>
+        <li><a data-toggle="tab" href="#BoostTargetCalc">BoostTargetCalc</a></li>
+        <li><a data-toggle="tab" href="#FuelCalc">Fuel Calc</a></li>
+      </ul>
+      <div class="tab-content">
+        <div id="BaseOptimalTQ" class="tab-pane fade in active" >
+          Copy your tunes existing "Load to TQ Table" or "Optimal TQ Table here"
+          <div class="base" id="base1"></div>
+          <div class="base" id="base2"></div>
+        </div>
+        <div id="BoostTargetCalc" class="tab-pane fade">
+          <div class="boost" id="boost0"></div>
+          <div class="boost" id="boost1"></div>
+          <div class="boost" id="boost2"></div>
+          <div class="boost" id="boost3"></div>
+          <div class="boost">
+            Max TQ Limit / Country Dependant TQ Limit / MAX Internal TQ / MAX TQ LIMIT POWER Tables
+            <div id="boost4"></div>
+          </div>
+          <div class="boost">
+            RPM Dependant Boost Characteristics of the internal Combustion <br>
+            RPM Dependant Full Load-Line of the internal Combustion	<br>		
+            RPM Dependant Launch Control of the internal Combustion	<br>
+            Optimal Characteristic Torque Curve Tables <br>
+            <div id="boost5"></div>
+          </div>
+          <div class="boost">
+            Load Ceiling Tables KR
+            <div id="boost6"></div>
+          </div>
+          <div class="boost">
+            Boost Set Limit
+            <div id="boost7"></div>
+          </div>
+          <div class="boost">
+            Boost Limit Multiplier
+            <div id="boost8"></div>
+          </div>
+          <div class="boost">
+            Modelled TQ Table
+            <div id="boost9"></div>
+          </div>
+        </div>
+        <div id="FuelCalc" class="tab-pane fade">
+          CCCCCCCCCC
+          <!-- <div class="ttt" id="example3"></div> -->
+        </div>
+      </div>
+      <script src="TuningTool/BoostTargetCalc.js"></script>
+      <script src="TuningTool/BaseOptimalTQ.js"></script>
+    </main>
+    <!-- Footer-->
+    <footer class="footer py-4">
+      <div class="container d-md-flex align-items-center justify-content-between py-2 text-center text-md-end">
+        <ul class="list-inline fs-sm mb-3 mb-md-0 order-md-2">
+          <li class="list-inline-item my-1"><a class="nav-link-style" href="mailto:navardituned@gmail.com">Support</a></li>
+          <li class="list-inline-item my-1"><a class="nav-link-style" href="https://navardituned.com/policies/terms-of-service">Terms &amp; Conditions</a></li>
+        </ul>
+        <p class="fs-sm mb-0 me-3 order-md-1"><span class="text-muted me-1">© All rights reserved. Made by</span><a class="nav-link-style fw-normal" href="https://navardituned.com/" target="_blank" rel="noopener">Navardi Tuned</a></p>
+      </div>
+    </footer>
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll data-fixed-element><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon ai-arrow-up">   </i></a>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <!-- Main theme script-->
+    <script src="js/theme.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+// Menu
+ul.navbar-nav
+  li()&attributes(parentMenu === 'Account' ? {'class': 'nav-item dropdown active'} : {'class': 'nav-item dropdown bg-primary rounded-3'})
+    a(href='#' data-bs-toggle='dropdown').nav-link.dropdown-toggle.text-white  Account
+    ul.dropdown-menu
+      li: a(href='/user').dropdown-item Account Settings
+      li: a(href='/login').dropdown-item Sign In - Sign Up
+  li()&attributes(parentMenu === 'Pages' ? {'class': 'nav-item dropdown active'} : {'class': 'nav-item dropdown bg-primary rounded-3'})
+    a(href='#' data-bs-toggle='dropdown').nav-link.dropdown-toggle.text-white Pages
+    ul.dropdown-menu
+      li: a(href='app').dropdown-item Open App
+      li: a(href='https://www.navardituned.com/products/tuningapp').dropdown-item Purchase Subscription
+      
